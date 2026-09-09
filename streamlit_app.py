@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("My new app")
+st.title("Who wants to guess?")
 
 # st.write("Sascha, you want to guess what my favourite cuisine is")
 
@@ -14,11 +14,11 @@ st.title("My new app")
 
 with st.expander("You want to guess what my favourite cuisine is?"):
     if st.button("Italian", type="tertiary"):
-        st.write("Nope.")
+        st.write("*Nope!* :👎:")
     if st.button("Chinese", type="tertiary"):
-        st.write("Nope.")
+        st.write("*Nope!* :👎:")
     if st.button("Japanese", type="tertiary"):
-        st.write("Nope.")
+        st.write("*Nope!* :👎:")
     if st.button("Indian", type="tertiary"):
         st.write("You are right!")
         st.balloons()
