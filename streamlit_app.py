@@ -130,10 +130,10 @@ df = pd.DataFrame({
         "🇮🇳 Indian"
     ],
     "Michelin-starred restaurants": [
-        783,
-        233,
-        846,
-        181
+        300,
+        24,
+        300,
+        21
     ],
     "Common/characteristic ingredient": [
         "Tomato",
@@ -165,32 +165,30 @@ selected_ingredient = random_cuisine["Common/characteristic ingredient"]
 
 # Four answer ranges for each possible Michelin count
 number_ranges = {
-    181: [
-        "50–100",
-        "100–150",
-        "150–200",
-        "200–250"
+
+    # Indian
+    21: [
+        "0–10",
+        "10–20",
+        "20–30",
+        "30–40"
     ],
 
-    233: [
+    # Chinese
+    24: [
+        "0–10",
+        "10–20",
+        "20–30",
+        "30–40"
+    ],
+
+    # Italian and Japanese
+    # Both are represented as 300+
+    300: [
         "100–150",
         "150–200",
         "200–250",
-        "250–300"
-    ],
-
-    783: [
-        "500–600",
-        "600–700",
-        "700–800",
-        "800–900"
-    ],
-
-    846: [
-        "500–600",
-        "600–700",
-        "700–800",
-        "800–900"
+        "300+"
     ]
 }
 
@@ -198,18 +196,29 @@ number_ranges = {
 number_options = number_ranges[selected_michelin]
 
 
-# Find the correct range
+# ============================================================
+# FIND THE CORRECT RANGE
+# ============================================================
+
 def get_correct_range(number):
 
+    # Italian / Japanese
+    if number >= 300:
+        return "300+"
+
+    # Indian / Chinese
     for option in number_ranges[number]:
 
-        low, high = option.split("–")
+        if "–" in option:
 
-        low = int(low)
-        high = int(high)
+            low, high = option.split("–")
 
-        if low <= number <= high:
-            return option
+            low = int(low)
+            high = int(high)
+
+            # Upper boundary is exclusive
+            if low <= number < high:
+                return option
 
     return None
 
@@ -243,17 +252,34 @@ with st.expander(
 
         elif number_answer == correct_number_range:
 
-            st.success(
-                f"🎉 Correct! The number is approximately "
-                f"**{selected_michelin}**."
-            )
+            if selected_michelin >= 300:
+
+                st.success(
+                    "🎉 Correct! There are **300+ Michelin-starred "
+                    "restaurants** associated with this cuisine."
+                )
+
+            else:
+
+                st.success(
+                    f"🎉 Correct! There are approximately "
+                    f"**{selected_michelin} Michelin-starred restaurants**."
+                )
 
         else:
 
-            st.error(
-                f"❌ Not quite! The answer is approximately "
-                f"**{selected_michelin}**."
-            )
+            if selected_michelin >= 300:
+
+                st.error(
+                    "❌ Not quite! The answer is **300+**."
+                )
+
+            else:
+
+                st.error(
+                    f"❌ Not quite! The answer is approximately "
+                    f"**{selected_michelin}**."
+                )
 
 
 # ============================================================
