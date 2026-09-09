@@ -21,7 +21,7 @@ with st.expander("🍛 Guess my favourite cuisine"):
         st.success("You are right! 🎉")
         st.balloons()
 
-        # Question 2
+# Question 2
 with st.expander("🇮🇳 How many regional cuisines exist within Indian cuisine?"):
 
     num = st.selectbox(
@@ -64,7 +64,7 @@ with st.expander("👩‍🍳 What style of Indian cuisine do I mostly cook/eat?
         if cuisine == "South Indian":
             st.success("Correct! 😄")
             st.write(
-                "Specifically **Karnataka cuisine**. "
+                "Specifically from **Karnataka**. "
                 #"Think dosa, idli, bisi bele bath, ragi mudde, and delicious home-cooked meals!"
             )
         elif cuisine == "Select an option...":
