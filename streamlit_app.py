@@ -4,29 +4,70 @@ st.title("Who wants to guess?")
 
 st.button("Reset", type="primary")
 
-#if st.button("Next guess. Do you know how many languages I can read, write and speak?"):
-    #st.write("4 - Kannada, English, Hindi, German")
-
-
-with st.expander("You want to guess what my favourite cuisine is?"):
+with st.expander("🍛 Guess my favourite cuisine"):
     if st.button("Italian", type="tertiary"):
         st.write("*Nope!* 👎")
         st.snow()
+
     if st.button("Chinese", type="tertiary"):
         st.write("*Nope!* 👎")
         st.snow()
+
     if st.button("Japanese", type="tertiary"):
         st.write("*Nope!* 👎")
         st.snow()
+
     if st.button("Indian", type="tertiary"):
-        st.write("You are right!")
+        st.success("You are right! 🎉")
         st.balloons()
-        with st.expander("Next guess. Do you know how many cuisines are within Indian cuisine?"):        
-            st.write("Several regional-based-cuisines exist. Don't know the exact number -- atleast 30")
-        with st.expander("What style of Indian cuisine do I mostly cook/eat?"):        
-            st.write("South Indian. Specifically from Karnataka. Yum yum!")
 
+        # Question 2
+with st.expander("🇮🇳 How many regional cuisines exist within Indian cuisine?"):
 
+    num = st.selectbox(
+        "Choose one:",
+        [
+            "Select an option...",
+            "5-10",
+            "10-20",
+            "20-30",
+            "30+"
+        ],
+        key="num_cuisines"
+    )
 
+    if st.button("Check answer", key="check_num"):
+        if num == "30+":
+            st.success("Correct! 🎉 There are 30+ well-known regional cuisines.")
+        elif num == "Select an option...":
+            st.warning("Please select an option first.")
+        else:
+            st.error("Not quite!")
 
+# Question 3
+with st.expander("👩‍🍳 What style of Indian cuisine do I mostly cook/eat?"):
 
+    cuisine = st.selectbox(
+        "Choose one:",
+        [
+            "Select an option...",
+            "North Indian",
+            "South Indian",
+            "Bengali",
+            "Gujarati",
+            "Goan"
+        ],
+        key="fav_style"
+    )
+
+    if st.button("Check answer", key="check_style"):
+        if cuisine == "South Indian":
+            st.success("Correct! 😄")
+            st.write(
+                "Specifically **Karnataka cuisine**. "
+                #"Think dosa, idli, bisi bele bath, ragi mudde, and delicious home-cooked meals!"
+            )
+        elif cuisine == "Select an option...":
+            st.warning("Please select an option first.")
+        else:
+            st.error("Not quite! I mostly cook and eat South Indian food.")
