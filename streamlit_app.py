@@ -334,7 +334,7 @@ with st.expander(
 # TRY DIFFERENT CUISINE
 # ============================================================
 
-if st.button("Try different cuisine?", type="primary"):
+if st.button("Try different cuisine", type="primary"):
     for key in [
         "trivia_cuisine",
         "ingredient_options",
