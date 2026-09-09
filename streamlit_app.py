@@ -14,11 +14,11 @@ st.title("Who wants to guess?")
 
 with st.expander("You want to guess what my favourite cuisine is?"):
     if st.button("Italian", type="tertiary"):
-        st.write("*Nope!* :👎:")
+        st.write("*Nope!* 👎")
     if st.button("Chinese", type="tertiary"):
-        st.write("*Nope!* :👎:")
+        st.write("*Nope!* 👎")
     if st.button("Japanese", type="tertiary"):
-        st.write("*Nope!* :👎:")
+        st.write("*Nope!* 👎")
     if st.button("Indian", type="tertiary"):
         st.write("You are right!")
         st.balloons()
