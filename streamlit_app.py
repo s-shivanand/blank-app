@@ -4,21 +4,6 @@ import random
 
 st.title("Who wants to guess?")
 
-# ============================================================
-# RESET BUTTON
-# ============================================================
-
-if st.button("Reset", type="primary"):
-    for key in [
-        "trivia_cuisine",
-        "ingredient_options",
-        "michelin_question",
-        "ingredient_question"
-    ]:
-        st.session_state.pop(key, None)
-
-    st.rerun()
-
 
 # ============================================================
 # QUESTION 1
@@ -344,3 +329,18 @@ with st.expander(
                 f"❌ Not quite! The answer is "
                 f"**{selected_ingredient}**."
             )
+
+# ============================================================
+# TRY DIFFERENT CUISINE
+# ============================================================
+
+if st.button("Try different cuisine?", type="primary"):
+    for key in [
+        "trivia_cuisine",
+        "ingredient_options",
+        "michelin_question",
+        "ingredient_question"
+    ]:
+        st.session_state.pop(key, None)
+
+    st.rerun()            
