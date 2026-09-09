@@ -70,4 +70,4 @@ with st.expander("👩‍🍳 What style of Indian cuisine do I mostly cook/eat?
         elif cuisine == "Select an option...":
             st.warning("Please select an option first.")
         else:
-            st.error("Not quite! I mostly cook and eat South Indian food.")
+            st.error("Not quite!")
