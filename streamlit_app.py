@@ -22,6 +22,12 @@ with st.expander("You want to guess what my favourite cuisine is?"):
     if st.button("Indian", type="tertiary"):
         st.write("You are right!")
         st.balloons()
+        with st.expander("Next guess. Do you know how many cuisines are within Indian cuisine?"):        
+            st.write("Several regional-based-cuisines exist. Don't know the exact number -- atleast 30")
+        with st.expander("What style of Indian cuisine do I mostly cook/eat?"):        
+            st.write("South Indian. Specifically from Karnataka. Yum yum!")
+
+
 
 
 
